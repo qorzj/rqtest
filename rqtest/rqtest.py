@@ -12,6 +12,7 @@ def send(method, url, data, headers, status_code, parsejson):
     if '://' not in url:
         url = 'http://' + url
     try:
+        ret = None
         fn = getattr(requests, method)
         if method in ('get', 'delete'):
             if data:
@@ -27,7 +28,8 @@ def send(method, url, data, headers, status_code, parsejson):
             response_obj = ret.text
         yield response_obj
     except Exception as e:
-        logging.fatal('text:\n' + ret.text + '\n')
+        if ret is not None:
+            logging.fatal('text:\n' + ret.text + '\n')
         if response_obj != ():
             logging.fatal(response_obj)
         raise

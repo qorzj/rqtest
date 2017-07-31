@@ -13,7 +13,7 @@ class MyInstall(install):
 
 setup(
         name = 'rqtest',
-        version='0.0.2',
+        version='0.0.3',
         description='test tool based on requests',
         long_description='',
         url='https://github.com/qorzj/rqtest',
