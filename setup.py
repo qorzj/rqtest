@@ -13,7 +13,7 @@ class MyInstall(install):
 
 setup(
         name = 'rqtest',
-        version='0.0.3',
+        version='0.0.6',
         description='test tool based on requests',
         long_description='',
         url='https://github.com/qorzj/rqtest',
@@ -29,5 +29,9 @@ setup(
         install_requires=['requests'],
 
         cmdclass={'install': MyInstall},
-        entry_points={ },
+        entry_points={
+            'console_scripts': [
+                'rqtest = rqtest.run:main',
+                ],
+            },
     )
